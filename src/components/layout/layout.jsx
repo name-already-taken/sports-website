@@ -44,9 +44,11 @@ export default ({ children }) => {
           <ListLink to="/contact/">Contact</ListLink>
         </ul>
       </header>
-      <main className={styles.main}>{children}</main>
-      <footer className={styles.footer}>
+      <main className={styles.main}>
+        {children}
         <Typing text={"HERE IS THE TYPING ANIMATION!"} />
+      </main>
+      <footer className={styles.footer}>
         <p>© 2020 Authorized By Jack Zhu</p>
       </footer>
     </div>
