@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import Typing from "../typing/typing";
 import { rhythm } from "../../utils/typography";
 
 import styles from "./layout.module.css";
@@ -45,6 +46,7 @@ export default ({ children }) => {
       </header>
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
+        <Typing text={"HERE IS THE TYPING ANIMATION!"} />
         <p>© 2020 Authorized By Jack Zhu</p>
       </footer>
     </div>
