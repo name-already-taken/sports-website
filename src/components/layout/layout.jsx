@@ -46,7 +46,7 @@ export default ({ children }) => {
       </header>
       <main className={styles.main}>
         {children}
-        <Typing text={"HERE IS THE TYPING ANIMATION!"} />
+        <Typing text={["Here is the typing animation! ", "You must try harder. "]} />
       </main>
       <footer className={styles.footer}>
         <p>© 2020 Authorized By Jack Zhu</p>

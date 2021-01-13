@@ -11,6 +11,7 @@ class Typing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      index: 0,
       stoptime: 1000,
       forwardtime: 100,
       backwardtime: 30,
@@ -21,28 +22,30 @@ class Typing extends React.Component {
 
   typingFunc() {
     const temp = this.state.tempText;
+    const text = this.props.text[this.state.index];
     const forward = this.state.forward;
     if (temp.length === 0) {
       clearTimeout(this.intervalFunc);
       this.intervalFunc = setTimeout(() => {
         this.setState({
+          index: (this.state.index + 1) % this.props.text.length,
           forward: true,
-          tempText: this.props.text.substring(0, temp.length + 1),
+          tempText: text.substring(0, temp.length + 1),
         });
         this.typingFunc();
       }, this.state.stoptime);
-    } else if (temp.length === this.props.text.length) {
+    } else if (temp.length === text.length) {
       clearTimeout(this.intervalFunc);
       this.intervalFunc = setTimeout(() => {
         this.setState({
           forward: false,
-          tempText: this.props.text.substring(0, temp.length - 1),
+          tempText: text.substring(0, temp.length - 1),
         });
         this.typingFunc();
       }, this.state.stoptime);
     } else if (forward) {
       this.setState({
-        tempText: this.props.text.substring(0, temp.length + 1),
+        tempText: text.substring(0, temp.length + 1),
       });
       clearTimeout(this.intervalFunc);
       this.intervalFunc = setTimeout(
@@ -51,7 +54,7 @@ class Typing extends React.Component {
       );
     } else {
       this.setState({
-        tempText: this.props.text.substring(0, temp.length - 1),
+        tempText: text.substring(0, temp.length - 1),
       });
       clearTimeout(this.intervalFunc);
       this.intervalFunc = setTimeout(
@@ -76,22 +79,14 @@ class Typing extends React.Component {
     return (
       <div
         css={css`
+          font-size: 22px;
           margin: 0;
         `}
       >
+        <span>{this.state.tempText}</span>
         <span
           css={css`
-            font-size: 22px;
-            margin: 0;
-          `}
-        >
-          {this.state.tempText}
-        </span>
-        <span
-          css={css`
-            font-size: 22px;
-            margin: 0;
-            animation: ${caret} 1s steps(1) infinite;
+            animation: ${caret} 800ms steps(1) infinite;
           `}
         >
           |
