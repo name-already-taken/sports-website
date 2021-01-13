@@ -2,6 +2,9 @@ import React from "react";
 import { css } from "@emotion/react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { rhythm } from "../../utils/typography";
+
+import styles from "./layout.module.css";
+
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>{props.children}</Link>
@@ -22,7 +25,7 @@ export default ({ children }) => {
   );
   return (
     <div>
-      <header style={{ marginBottom: `1.5rem` }}>
+      <header className={styles.header}>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
           <h3
             css={css`
@@ -40,29 +43,8 @@ export default ({ children }) => {
           <ListLink to="/contact/">Contact</ListLink>
         </ul>
       </header>
-      <main
-        css={css`
-          background-color: #fff;
-          position: relative;
-          z-index: 2;
-          width: 100%;
-          margin: 0 auto;
-          margin-bottom: 200px;
-        `}
-      >
-        {children}
-      </main>
-      <footer
-        css={css`
-          position: fixed;
-          z-index: 1;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          background-color: #e9ecef;
-          height: 200px;
-        `}
-      >
+      <main className={styles.main}>{children}</main>
+      <footer className={styles.footer}>
         <p>© 2020 Authorized By Jack Zhu</p>
       </footer>
     </div>
