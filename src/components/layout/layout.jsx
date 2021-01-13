@@ -21,14 +21,7 @@ export default ({ children }) => {
     `
   );
   return (
-    <div
-      css={css`
-        margin: 0 auto;
-        max-width: 1000px;
-        padding: ${rhythm(1)};
-        padding-top: ${rhythm(1)};
-      `}
-    >
+    <div>
       <header style={{ marginBottom: `1.5rem` }}>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
           <h3
@@ -47,7 +40,31 @@ export default ({ children }) => {
           <ListLink to="/contact/">Contact</ListLink>
         </ul>
       </header>
-      {children}
+      <main
+        css={css`
+          background-color: #fff;
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          margin: 0 auto;
+          margin-bottom: 200px;
+        `}
+      >
+        {children}
+      </main>
+      <footer
+        css={css`
+          position: fixed;
+          z-index: 1;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #e9ecef;
+          height: 200px;
+        `}
+      >
+        <p>© 2020 Authorized By Jack Zhu</p>
+      </footer>
     </div>
   );
 };
