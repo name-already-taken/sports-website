@@ -1,12 +1,12 @@
-import React from "react"
-import { css } from "@emotion/react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import { rhythm } from "../../utils/typography"
+import React from "react";
+import { css } from "@emotion/react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import { rhythm } from "../../utils/typography";
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>{props.children}</Link>
   </li>
-)
+);
 
 export default ({ children }) => {
   const data = useStaticQuery(
@@ -19,21 +19,21 @@ export default ({ children }) => {
         }
       }
     `
-  )
+  );
   return (
     <div
       css={css`
         margin: 0 auto;
-        max-width: 700px;
-        padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
+        max-width: 1000px;
+        padding: ${rhythm(1)};
+        padding-top: ${rhythm(1)};
       `}
     >
       <header style={{ marginBottom: `1.5rem` }}>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
           <h3
             css={css`
-              margin-bottom: ${rhythm(2)};
+              margin-bottom: ${rhythm(1)};
               display: inline-block;
               font-style: normal;
             `}
@@ -49,5 +49,5 @@ export default ({ children }) => {
       </header>
       {children}
     </div>
-  )
-}
+  );
+};

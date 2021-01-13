@@ -1,5 +1,5 @@
-import React from "react"
-import Layout from "../components/layout/layout"
+import React from "react";
+import Layout from "../components/layout/layout";
 
 export default () => (
   <Layout>
@@ -10,4 +10,4 @@ export default () => (
       </p>
     </div>
   </Layout>
-)
+);
