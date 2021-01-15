@@ -51,7 +51,7 @@ export default ({ children }) => {
         />
       </main>
       <footer className={styles.footer}>
-        <p>© 2020 Authorized By Jack Zhu</p>
+        <p>© 2021 Authorized By Jack Zhu</p>
       </footer>
     </div>
   );
